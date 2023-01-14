@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
+use App\Http\Controllers\PerdaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('frontend/index');
+    return view('welcome');
 });
 
 Route::get('/dashboard', function () {
@@ -26,3 +30,5 @@ require __DIR__.'/auth.php';
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::post('create', [PerdaController::class, 'StorePerdagangan1'])->middleware(['auth'])->name('perda1');

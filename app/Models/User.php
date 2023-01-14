@@ -45,8 +45,13 @@ class User extends Authenticatable
     ];
 
 
-    public function user_id()
+    public function perdagangan1()
     {
-        $this->belongsTo(user::class);
+        $this->belongsTo(Perdagangan1::class);
     }
+    public function perdagangan2()
+    {
+        $this->belongsTo(Perdagangan2::class);
+    }
+
 }
