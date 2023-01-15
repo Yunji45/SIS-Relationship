@@ -30,8 +30,6 @@ class PerdaController extends Controller
 
     public function StorePerdagangan1(Request $req)
     {
-        // $user = Auth::user();
-        // $test = Perdagangan1::where('user_id', $user->id)->first();
 
         $validated = $req->validate([
             'jam' => 'required',
@@ -46,6 +44,62 @@ class PerdaController extends Controller
             'jml_Rp' => $req->jml_Rp,
         ]);
 
-        return redirect()->route('dashboard')->with('berhasil', 'Successfully insert data');
+        return redirect()->route('perda1.province')->with('berhasil', 'Successfully insert data');
+    }
+
+    public function StoreDistric()
+    {
+
+    }
+
+    public function StoreProvince ( Request $request)
+    {
+
+        $per = Perdagangan1::all();
+
+        $validated= $request->validate([
+            'kode' => 'required',
+            'name' => 'required',
+            'ibukota' => 'required',
+        ]);
+
+        $ihi = Province::create([
+            'user_id' =>$per->id,
+            'kode' => $request->kode,
+            'name' => $request->name,
+            'ibukota' => $request->ibukota,
+        ]);
+        return redirect()->route('perda1.province')->with('berhasil', 'Successfully insert data');
+
+    }
+
+    public function StoreRegency()
+    {
+
+    }
+
+    public function StoreVillage()
+    {
+
+    }
+
+    public function CreateVillage()
+    {
+        return view ('Backend/perda1/village');
+    }
+
+    public function CreateRegency()
+    {
+        return view('Backend/perda1/regenci');
+    }
+
+    public function CreateProvince()
+    {
+        return view ('Backend/perda1/province');
+    }
+
+    public function CreateDistric()
+    {
+        return view ('Backend/perda1/distric');
     }
 }

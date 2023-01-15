@@ -15,11 +15,12 @@ class CreateDistrictsTables extends Migration
     public function up()
     {
         Schema::create('districts', function(Blueprint $table){
-            $table->id('No');
-            $table->foreignId('user_id')->contrained('perdagangan1s' ,'id');
+            // $table->id('No');
+            // $table->foreignId('user_id')->contrained('perdagangan1s' ,'id');
             $table->char('id', 7)->index();
             $table->char('regency_id', 4);
             $table->string('name', 50);
+            // $table->string('ibukota');
             $table->foreign('regency_id')
                 ->references('id')
                 ->on('regencies')

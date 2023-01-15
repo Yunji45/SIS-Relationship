@@ -14,10 +14,12 @@ class CreateProvincesTables extends Migration
     public function up()
     {
         Schema::create('provinces', function(Blueprint $table){
-            $table->id('No');
-            $table->foreignId('user_id')->contrained('perdagangan1s' ,'id');
+            // $table->id('No');
+            // $table->foreignId('user_id')->nullable()->contrained('perdagangan1s' ,'id');
             $table->char('id', 2)->index();
             $table->string('name');
+            // $table->string('ibukota');
+            // $table->timestamps();
         });
     }
 

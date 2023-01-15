@@ -24,6 +24,19 @@ class Province extends Model
      * @var string
      */
     protected $table = 'provinces';
+    protected $fillable = [
+        'user_id',
+        'kode',
+        'name',
+        'ibukota'
+    ];
+
+    protected $hidden = [
+        'user_id'
+    ];
+
+
+    // protected $primaryKey = 'No';
 
     /**
      * Province has many regencies.
@@ -34,4 +47,13 @@ class Province extends Model
     {
         return $this->hasMany(Regency::class);
     }
+
+    public function pedagang(){
+        return $this->belongsTo(Perdagangan1::class);
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+
 }

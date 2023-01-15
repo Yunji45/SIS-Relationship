@@ -15,11 +15,12 @@ class CreateVillagesTables extends Migration
     public function up()
     {
         Schema::create('villages', function(Blueprint $table){
-            $table->id('No');
-            $table->foreignId('user_id')->contrained('perdagangan1s' ,'id');
+            // $table->id('No');
+            // $table->foreignId('user_id')->contrained('perdagangan1s' ,'id');
             $table->char('id', 10)->index();
             $table->char('district_id', 7);
             $table->string('name', 50);
+            // $table->string('ibukota');
             $table->foreign('district_id')
                 ->references('id')
                 ->on('districts')

@@ -23,4 +23,9 @@ class Perdagangan1 extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function province(){
+        return $this->hasMany(Province::class, 'user_id');
+    }
+
+
 }

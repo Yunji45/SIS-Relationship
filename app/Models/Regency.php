@@ -35,6 +35,8 @@ class Regency extends Model
         'province_id'
     ];
 
+    // protected $primariKey="No";
+
     /**
      * Regency belongs to Province.
      *
